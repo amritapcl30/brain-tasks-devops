@@ -6,11 +6,11 @@ phases:
       - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 453632313819.dkr.ecr.ap-south-1.amazonaws.com
   build:
     commands:
-      - docker build -t brain-tasks-app .
-      - docker tag brain-tasks-app:latest 453632313819.dkr.ecr.ap-south-1.amazonaws.com/brain-tasks-app:latest
+      - docker build -t brain-tasks-devops .
+      - docker tag brain-tasks-devops:latest 453632313819.dkr.ecr.ap-south-1.amazonaws.com/brain-tasks-devops:latest
   post_build:
     commands:
-      - docker push 453632313819.dkr.ecr.ap-south-1.amazonaws.com/brain-tasks-app:latest
+      - docker push 453632313819.dkr.ecr.ap-south-1.amazonaws.com/brain-tasks-devops:latest
 artifacts:
   files:
     - k8s/*
